@@ -1,0 +1,13 @@
+D:\Demo_App\DemoApp\DemoApp\bin\Debug\DemoApp.exe.config
+D:\Demo_App\DemoApp\DemoApp\bin\Debug\DemoApp.exe
+D:\Demo_App\DemoApp\DemoApp\bin\Debug\DemoApp.pdb
+D:\Demo_App\DemoApp\DemoApp\obj\Debug\DemoApp.csproj.AssemblyReference.cache
+D:\Demo_App\DemoApp\DemoApp\obj\Debug\DemoApp.MainForm.resources
+D:\Demo_App\DemoApp\DemoApp\obj\Debug\DemoApp.Properties.Resources.resources
+D:\Demo_App\DemoApp\DemoApp\obj\Debug\DemoApp.csproj.GenerateResource.cache
+D:\Demo_App\DemoApp\DemoApp\obj\Debug\DemoApp.csproj.CoreCompileInputs.cache
+D:\Demo_App\DemoApp\DemoApp\obj\Debug\DemoApp.exe
+D:\Demo_App\DemoApp\DemoApp\obj\Debug\DemoApp.pdb
+D:\Demo_App\DemoApp\DemoApp\bin\Debug\Newtonsoft.Json.dll
+D:\Demo_App\DemoApp\DemoApp\bin\Debug\Newtonsoft.Json.xml
+D:\Demo_App\DemoApp\DemoApp\obj\Debug\DemoApp.csproj.CopyComplete
