@@ -31,51 +31,62 @@ namespace DemoApp
         private void InitializeComponent()
         {
             this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.clbCategories = new System.Windows.Forms.CheckedListBox();
+            this.lblSelectedItems = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProducts
             // 
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Location = new System.Drawing.Point(12, 53);
+            this.dgvProducts.Location = new System.Drawing.Point(7, 114);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowHeadersWidth = 51;
             this.dgvProducts.RowTemplate.Height = 24;
             this.dgvProducts.Size = new System.Drawing.Size(885, 390);
             this.dgvProducts.TabIndex = 0;
             // 
-            // cmbCategory
+            // clbCategories
             // 
-            this.cmbCategory.Location = new System.Drawing.Point(12, 12);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(121, 24);
-            this.cmbCategory.TabIndex = 0;
-            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged_1);
+            this.clbCategories.FormattingEnabled = true;
+            this.clbCategories.Location = new System.Drawing.Point(12, 12);
+            this.clbCategories.Name = "clbCategories";
+            this.clbCategories.Size = new System.Drawing.Size(172, 89);
+            this.clbCategories.TabIndex = 2;
+            this.clbCategories.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbCategories_ItemCheck);
+            //this.clbCategories.MouseUp += new System.Windows.Forms.MouseEventHandler(this.clbCategories_MouseUp);
             // 
-            // button1
+            // lblSelectedItems
             // 
-            this.button1.Location = new System.Drawing.Point(170, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 24);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Refresh Data";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.lblSelectedItems.AutoSize = true;
+            this.lblSelectedItems.Location = new System.Drawing.Point(677, 20);
+            this.lblSelectedItems.Name = "lblSelectedItems";
+            this.lblSelectedItems.Size = new System.Drawing.Size(0, 16);
+            this.lblSelectedItems.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(543, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Search for:";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 452);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.cmbCategory);
+            this.ClientSize = new System.Drawing.Size(904, 516);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblSelectedItems);
+            this.Controls.Add(this.clbCategories);
             this.Controls.Add(this.dgvProducts);
             this.Name = "MainForm";
             this.Text = "List Product From API";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         
@@ -83,8 +94,9 @@ namespace DemoApp
         #endregion
 
         private System.Windows.Forms.DataGridView dgvProducts;
-        private System.Windows.Forms.ComboBox cmbCategory;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckedListBox clbCategories;
+        private System.Windows.Forms.Label lblSelectedItems;
+        private System.Windows.Forms.Label label1;
     }
 }
 

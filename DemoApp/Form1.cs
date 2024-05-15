@@ -88,9 +88,11 @@ namespace DemoApp
                         string categoryJsonString = await categoryResponse.Content.ReadAsStringAsync();
                         categories = JsonConvert.DeserializeObject<List<Category>>(categoryJsonString);
                         categories.Insert(0, new Category { Id = "999", Name = "All" });
-                        cmbCategory.DataSource = categories;
-                        cmbCategory.DisplayMember = "Name";
-                        cmbCategory.ValueMember = "Id";
+
+                        clbCategories.DataSource = categories;
+                        clbCategories.DisplayMember = "Name";
+                        clbCategories.ValueMember = "Id";
+
                     }
                     else
                     {
@@ -123,31 +125,45 @@ namespace DemoApp
             }
         }
 
-        private void cmbCategory_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void clbCategories_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            if (cmbCategory.SelectedValue != null)
+            this.BeginInvoke((MethodInvoker)delegate
             {
-                string categoryId = cmbCategory.SelectedValue.ToString();
-                if (categoryId == "999")
-                {
-                    dgvProducts.DataSource = products;
-                }
-                else
-                {
-                    if (categoryId != "DemoApp.Modal.Category")
-                    {
-                        var filteredproducts = products.Where(p => p.CategoryId.ToString() == categoryId).ToList();
-                        dgvProducts.DataSource = filteredproducts;
-                    }
-                }
-
-            }
+                UpdateSelectedItemsLabel();
+                FilterProducts();
+               
+            });
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void UpdateSelectedItemsLabel()
         {
-            LoadDataFromAPI();
+            var selectedItems = clbCategories.CheckedItems.Cast<Category>().Select(c => c.Name).ToList();
+            lblSelectedItems.Text = string.Join(", ", selectedItems);
         }
+
+        private void FilterProducts()
+        {
+            var selectedCategories = clbCategories.CheckedItems.Cast<Category>().Select(c => c.Id).ToList();
+
+            if (selectedCategories.Contains("999")) 
+            {
+                dgvProducts.DataSource = products;
+            }
+            else
+            {
+                var filteredProducts = products.Where(p => selectedCategories.Contains(p.CategoryId.ToString())).ToList();
+                dgvProducts.DataSource = filteredProducts;
+            }
+
+            if (dgvProducts.Columns["CategoryId"] != null)
+            {
+                dgvProducts.Columns["CategoryId"].Visible = false;
+            }
+
+            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        
     }
 
 }
