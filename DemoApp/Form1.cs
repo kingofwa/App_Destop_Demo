@@ -32,7 +32,8 @@ namespace DemoApp
 
                 using (HttpClient client = new HttpClient(clientHandler))
                 {
-                    string url = "https://localhost:44377/api/user/login";
+                    string loginUrl = $"{ApiUrls.BaseUrl}user/login";
+
                     var loginData = new
                     {
                         Username = username,
@@ -40,7 +41,7 @@ namespace DemoApp
                     };
 
                     var content = new StringContent(JsonConvert.SerializeObject(loginData), Encoding.UTF8, "application/json");
-                    HttpResponseMessage response = await client.PostAsync(url, content);
+                    HttpResponseMessage response = await client.PostAsync(loginUrl, content);
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -73,6 +74,10 @@ namespace DemoApp
                     return;
                 }
 
+                string categoryUrl = $"{ApiUrls.BaseUrl}Category";
+                string productUrl = $"{ApiUrls.BaseUrl}Product";
+
+
                 HttpClientHandler clientHandler = new HttpClientHandler();
                 clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
 
@@ -81,7 +86,6 @@ namespace DemoApp
                     client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
                     // Load categories
-                    string categoryUrl = "https://localhost:44377/api/Category";
                     HttpResponseMessage categoryResponse = await client.GetAsync(categoryUrl);
                     if (categoryResponse.IsSuccessStatusCode)
                     {
@@ -101,7 +105,6 @@ namespace DemoApp
                     }
 
                     // Load products
-                    string productUrl = "https://localhost:44377/api/Product";
                     HttpResponseMessage productResponse = await client.GetAsync(productUrl);
                     if (productResponse.IsSuccessStatusCode)
                     {
