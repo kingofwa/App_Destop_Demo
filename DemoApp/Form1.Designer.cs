@@ -43,7 +43,7 @@ namespace DemoApp
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowHeadersWidth = 51;
             this.dgvProducts.RowTemplate.Height = 24;
-            this.dgvProducts.Size = new System.Drawing.Size(773, 374);
+            this.dgvProducts.Size = new System.Drawing.Size(885, 390);
             this.dgvProducts.TabIndex = 0;
             // 
             // cmbCategory
@@ -58,9 +58,9 @@ namespace DemoApp
             // 
             this.button1.Location = new System.Drawing.Point(170, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 24);
+            this.button1.Size = new System.Drawing.Size(115, 24);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Refresh";
+            this.button1.Text = "Refresh Data";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -68,7 +68,7 @@ namespace DemoApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(904, 452);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.dgvProducts);

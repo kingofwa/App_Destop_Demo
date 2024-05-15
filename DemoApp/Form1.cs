@@ -106,6 +106,10 @@ namespace DemoApp
                         string productJsonString = await productResponse.Content.ReadAsStringAsync();
                         products = JsonConvert.DeserializeObject<List<Product>>(productJsonString);
                         dgvProducts.DataSource = products;
+                        dgvProducts.Columns["CategoryId"].Visible = false;
+                        dgvProducts.Columns["Id"].Visible = false;
+
+                        dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     }
                     else
                     {
